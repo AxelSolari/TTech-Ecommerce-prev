@@ -9,7 +9,13 @@ export default function ProductList({products, addToCart, handleDecreaseQuantity
                 const itemInCart = cart.find(item => item.id === product.id)
                 const cantidad = itemInCart ? itemInCart.cantidad : 0
                 return (
-                    <Product product={{...product, cantidad}} key={product.id} addToCart={addToCart} handleDecreaseQuantity={handleDecreaseQuantity} cart={cart}/>
+                    <Product
+                      key={product.id}
+                      product={{...product, cantidad}}  
+                      addToCart={addToCart} 
+                      handleDecreaseQuantity={handleDecreaseQuantity} 
+                      cart={cart}
+                    />
                 )
             })}   
         </div>

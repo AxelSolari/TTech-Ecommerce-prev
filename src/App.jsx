@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 function App() {
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
-
+  const [cartOpen, setCartOpen] = useState(false)
 
   //#fetch
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
 
   //#addToCart
   const handleAdToCart =(product) => {
-    const productExist = cart.find( product => product.id )
+    const productExist = cart.find( item => item.id === product.id )
 
     if(productExist) {
       setCart(
@@ -39,15 +39,28 @@ function App() {
   }
 
   //#decreaseQuantity
-  const hadnleDecreaseQuantity = (product) => {
-    const productExist = cart.find( item => item.id === product.id)
+  const handleDecreaseQuantity = (product) => {
+    const productExist = cart.find( (item) => item.id === product.id)
     if(productExist.cantidad === 1) {
-      setCart(cart.filter(item => item.id !== product.id))
+      setCart(cart.filter((item) => item.id !== product.id))
     } else { 
       setCart(
-        cart.map(item => item.id === product.id) ? {...item, cantidad: item.cantidad - 1} : item
+        cart.map((item) => item.id === product.id ? {...item, cantidad: item.cantidad - 1} : item)
       )
     }
+  }
+
+  //#deleteItem
+  const deleteItem = (product) => {
+    const productExist = cart.find((item) => item.id === product.id)
+    if(productExist) {
+      setCart(cart.filter((item) => item.id !== product.id))
+    }
+  }
+
+  //#clearCart
+  const clearCart = () => {
+    setCart([])
   }
 
   return (
@@ -59,7 +72,11 @@ function App() {
               products={products}
               cart={cart}
               addToCart={handleAdToCart}
-              decrease={hadnleDecreaseQuantity}
+              handleDecreaseQuantity={handleDecreaseQuantity}
+              deleteItem={deleteItem}
+              clearCart={clearCart}
+              cartOpen={cartOpen}
+              setCartOpen={setCartOpen}
             />} 
           />
         </Routes>

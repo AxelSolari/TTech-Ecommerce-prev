@@ -5,10 +5,14 @@ import Main from "../components/Main";
 import ProductList from "../components/ProductList";
 
 
-export default function Home({products, cart, addToCart, handleDecreaseQuantity}) {
+export default function Home({products, cart, addToCart, handleDecreaseQuantity, deleteItem, clearCart, cartOpen, setCartOpen}) {
   return (
     <>
-        <Header />
+        <Header 
+          cart={cart}
+          cartOpen={cartOpen}
+          setCartOpen={setCartOpen}
+        />
         <Main />
         <ProductList 
             products={products} 
@@ -16,8 +20,12 @@ export default function Home({products, cart, addToCart, handleDecreaseQuantity}
             handleDecreaseQuantity = {handleDecreaseQuantity}
             cart={cart}
         />
-        <Cart 
+        <Cart   
+            deleteItem={deleteItem}
             cart={cart}
+            clearCart={clearCart}
+            cartOpen={cartOpen}
+            setCartOpen={setCartOpen}
         />
         <Footer />
     </>
