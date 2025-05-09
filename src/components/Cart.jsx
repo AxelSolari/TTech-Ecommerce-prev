@@ -3,7 +3,7 @@ export default function Cart({cart, deleteItem, clearCart, cartOpen, setCartOpen
     const total = cart.reduce((total, item) => total + (item.price * item.cantidad) , 0)
 
   return (
-    <div className={`fixed top-0 right-0 w-[400px] h-full bg-white shadow-lg transform  transition-transform z-50 overflow-y-auto text-center ${cartOpen ? 'translate-x[0%]' : 'translate-x[100%]'}`}>
+    <div className={`fixed top-0 right-0 w-[400px] h-[90%] mt-10 bg-neutral-50 rounded-t-lg shadow-lg transform  transition-transform z-50 overflow-y-auto text-center ${cartOpen ? 'translate-x-0' : 'translate-x-full'  }`}>
         <div className="flex items-center justify-center mt-5 gap-5 border-b p-5">
             <h2 className="font-bold text-fuchsia-700 text-lg">Mi Carrito</h2>
             |
