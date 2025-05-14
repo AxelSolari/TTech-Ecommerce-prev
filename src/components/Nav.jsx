@@ -1,5 +1,5 @@
 
-export default function Nav({cart, cartOpen, setCartOpen}) {
+export default function Nav({cart, setCartOpen}) {
   return (
     <nav>
         <ul className="flex gap-6 justify-between text-fuchsia-800 text-lg">
