@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
 export default function Nav({cart, setCartOpen}) {
   return (
     <nav>
         <ul className="flex gap-6 justify-between text-fuchsia-800 text-lg">
-            <li className=" cursor-pointer hover:text-fuchsia-400">Inicio </li>
-            <li className=" cursor-pointer hover:text-fuchsia-400">Productos</li>
-            <li className=" cursor-pointer hover:text-fuchsia-400">Nosotros</li>
-            <li className=" cursor-pointer hover:text-fuchsia-400">Contacto</li>
+            <li className=" cursor-pointer hover:text-fuchsia-400"><Link to='/'>Inicio</Link></li>
+            <li className=" cursor-pointer hover:text-fuchsia-400"><Link to='/productos'>Productos</Link></li>
+            <li className=" cursor-pointer hover:text-fuchsia-400"><Link to='/nosotros'>Nosotros</Link></li>
+            <li className=" cursor-pointer hover:text-fuchsia-400"><Link to='/contacto'>Contacto</Link></li>
             <li className="relative flex items-center gap-2 ">
                 Mi Carrito:
                 <button 

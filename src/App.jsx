@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./layout/Home"
 import { useEffect, useState } from "react"
+import ProductsViews from "./layout/ProductsViews"
 
 function App() {
   const [cart, setCart] = useState([])
@@ -79,6 +80,16 @@ function App() {
               setCartOpen={setCartOpen}
             />} 
           />
+            <Route path="/productos" element={<ProductsViews 
+              cart={cart} 
+              setCartOpen={setCartOpen} 
+              cartOpen={cartOpen} 
+              products={products} 
+              addToCart={handleAdToCart} 
+              handleDecreaseQuantity={handleDecreaseQuantity} 
+              deleteItem={deleteItem}
+              clearCart={clearCart}
+            />} />
         </Routes>
       </Router>
     </>
