@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Product({product, addToCart, handleDecreaseQuantity}) {
 
@@ -13,7 +14,14 @@ export default function Product({product, addToCart, handleDecreaseQuantity}) {
 
         </div>
         <div className='p-2'>
-          <h3 className='font-bold text-xl border-b'>{product.name}</h3>
+            <div className='flex justify-between items-center p-2'>
+              <h3 className='font-bold text-xl border-b'>{product.name}</h3>
+              <Link 
+                  to={`/products/${product.id}`}
+                  className='py-1 px-2 bg-fuchsia-600 rounded text-white text-sm font-bold transition-all hover:bg-fuchsia-400 cursor-pointer'
+              >
+              Ver mas</Link>
+            </div>
           <p className='text-sm leading-5 mt-2 text-center'>{product.description}</p>
             <p className='font-bold mt-5 text-center text-lg'>${product.price}</p>
             <div className='flex flex-col justify-center'>

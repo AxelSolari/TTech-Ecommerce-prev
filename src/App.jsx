@@ -2,12 +2,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./layout/Home"
 import { useEffect, useState } from "react"
 import ProductsViews from "./layout/ProductsViews"
+import ProductDetails from "./components/ProductDetails"
+import NotFound from "./components/NotFound"
+import Login from "./layout/Login"
+import ProtectedRoute from "./components/ProtectedRoute"
+import AdminPanel from "./layout/AdminPanel"
 
 function App() {
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
-
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   //#fetch
   useEffect(() => {
     const fetchData = async () => {
@@ -16,8 +22,10 @@ function App() {
           const data = await response.json()
           // console.log(data.db)
           setProducts(data.db)
+          setIsLoading(false)
       } catch (error) {
         console.log(error)
+        setIsLoading(false)
       }
     }
     fetchData()
@@ -78,6 +86,7 @@ function App() {
               clearCart={clearCart}
               cartOpen={cartOpen}
               setCartOpen={setCartOpen}
+              isLoading={isLoading}
             />} 
           />
             <Route path="/productos" element={<ProductsViews 
@@ -90,6 +99,12 @@ function App() {
               deleteItem={deleteItem}
               clearCart={clearCart}
             />} />
+          <Route path="/products/:id"
+            element={<ProductDetails products={products} />} 
+          />
+          <Route path="/notfound"  element={<NotFound />}/>
+          <Route path="/login"   element={<Login />}/>
+          <Route path="/admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} ><AdminPanel /></ProtectedRoute> } />
         </Routes>
       </Router>
     </>
