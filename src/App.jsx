@@ -7,6 +7,8 @@ import NotFound from "./components/NotFound"
 import Login from "./layout/Login"
 import ProtectedRoute from "./components/ProtectedRoute"
 import AdminPanel from "./layout/AdminPanel"
+import Nosotros from "./layout/Nosotros"
+import Contacto from "./layout/Contacto"
 
 function App() {
   const [cart, setCart] = useState([])
@@ -89,7 +91,8 @@ function App() {
               isLoading={isLoading}
             />} 
           />
-            <Route path="/productos" element={<ProductsViews 
+          <Route path="/productos" 
+            element={<ProductsViews 
               cart={cart} 
               setCartOpen={setCartOpen} 
               cartOpen={cartOpen} 
@@ -98,7 +101,26 @@ function App() {
               handleDecreaseQuantity={handleDecreaseQuantity} 
               deleteItem={deleteItem}
               clearCart={clearCart}
-            />} />
+            />} 
+          />
+          <Route path="/nosotros"
+            element={<Nosotros 
+              cart={cart}
+              cartOpen={cartOpen}
+              setCartOpen={setCartOpen}
+              clearCart={clearCart}
+              deleteItem={deleteItem}
+            />}
+          />
+          <Route path="/contacto"
+            element={<Contacto 
+              cart={cart}
+              cartOpen={cartOpen}
+              setCartOpen={setCartOpen}
+              clearCart={clearCart}
+              deleteItem={deleteItem}
+            />} 
+          />
           <Route path="/products/:id"
             element={<ProductDetails products={products} />} 
           />

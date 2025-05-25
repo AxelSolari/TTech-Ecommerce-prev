@@ -1,7 +1,6 @@
 import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Nav from "../components/Nav";
 import ProductList from "../components/ProductList";
 
 export default function ProductsViews({cart, setCartOpen, cartOpen, products, addToCart, handleDecreaseQuantity, deleteItem, clearCart}) {
