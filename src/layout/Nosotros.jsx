@@ -2,14 +2,10 @@ import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function Nosotros({cart, cartOpen, setCartOpen, clearCart, deleteItem}) {
+export default function Nosotros() {
   return (
     <>
-        <Header 
-            cart={cart} 
-            cartOpen={cartOpen} 
-            setCartOpen={setCartOpen}
-        />
+        <Header />
 
         <h2 className="text-center text-4xl my-7">Sobre nuestra empresa</h2>
 
@@ -25,13 +21,7 @@ export default function Nosotros({cart, cartOpen, setCartOpen, clearCart, delete
             <img className=" w-[600px] rounded-lg" src='/us.jpg'  alt="sobre nosotros"/>
         </div>
 
-        <Cart 
-            cart={cart}
-            cartOpen={cartOpen}
-            setCartOpen={setCartOpen}
-            clearCart={clearCart}
-            deleteItem={deleteItem}
-        /> 
+        <Cart /> 
            
         <Footer/>
     </>

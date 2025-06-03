@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [products, setProducts] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   //#fetch
   useEffect(() => {
     const fetchData = async () => {
@@ -67,7 +67,7 @@ export const CartProvider = ({ children }) => {
   }
 
     return (
-        <CartContext.Provider value={{cart, products, cartOpen, isAuthenticated, isLoading}}>
+        <CartContext.Provider value={{cart, products, cartOpen, isAuthenticated, isLoading, handleAdToCart, handleDecreaseQuantity, deleteItem, clearCart, setCartOpen, setIsAuthenticated}}>
             {children}
         </CartContext.Provider>
     )

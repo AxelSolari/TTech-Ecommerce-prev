@@ -1,9 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom"
 import back from '/back.svg'
 import NotFound from "./NotFound";
-export default function ProductDetails({products}) {
-    const { id } = useParams()
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+export default function ProductDetails() {
+    
+    const { products } = useContext(CartContext)
 
+    const { id } = useParams()
     const productos = products.find( item => item.id === +id) 
     const navigate = useNavigate();
   return (

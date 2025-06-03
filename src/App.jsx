@@ -13,57 +13,26 @@ import { CartContext } from "./context/CartContext"
 
 function App() {
   
-  const {cart, products, cartOpen, isAuthenticated, isLoading } = useContext()
+  const { isAuthenticated } = useContext(CartContext)
 
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" 
-            element={<Home 
-              products={products}
-              cart={cart}
-              addToCart={handleAdToCart}
-              handleDecreaseQuantity={handleDecreaseQuantity}
-              deleteItem={deleteItem}
-              clearCart={clearCart}
-              cartOpen={cartOpen}
-              setCartOpen={setCartOpen}
-              isLoading={isLoading}
-            />} 
+            element={<Home />} 
           />
           <Route path="/productos" 
-            element={<ProductsViews 
-              cart={cart} 
-              setCartOpen={setCartOpen} 
-              cartOpen={cartOpen} 
-              products={products} 
-              addToCart={handleAdToCart} 
-              handleDecreaseQuantity={handleDecreaseQuantity} 
-              deleteItem={deleteItem}
-              clearCart={clearCart}
-            />} 
+            element={<ProductsViews />} 
           />
           <Route path="/nosotros"
-            element={<Nosotros 
-              cart={cart}
-              cartOpen={cartOpen}
-              setCartOpen={setCartOpen}
-              clearCart={clearCart}
-              deleteItem={deleteItem}
-            />}
+            element={<Nosotros />}
           />
           <Route path="/contacto"
-            element={<Contacto 
-              cart={cart}
-              cartOpen={cartOpen}
-              setCartOpen={setCartOpen}
-              clearCart={clearCart}
-              deleteItem={deleteItem}
-            />} 
+            element={<Contacto />} 
           />
           <Route path="/products/:id"
-            element={<ProductDetails products={products} />} 
+            element={<ProductDetails />} 
           />
           <Route path="/notfound"  element={<NotFound />}/>
           <Route path="/login"   element={<Login />}/>

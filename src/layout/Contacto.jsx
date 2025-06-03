@@ -2,16 +2,12 @@ import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function Contacto({cart, cartOpen, setCartOpen, clearCart, deleteItem}) {
+export default function Contacto() {
   return (
     <>
-        <Header 
-            cartOpen={cartOpen} 
-            cart={cart} 
-            setCartOpen={setCartOpen}
-        />
+        <Header />
         
-        <h3 className="text-4xl text-center my-7">Cotactanos</h3>
+        <h3 className="text-4xl text-center my-7">Contactanos</h3>
         <div className="my-20">
             <form
                 className="bg-white flex flex-col w-1/3 mx-auto p-10 space-y-5 shadow-xl mb-10"
@@ -37,13 +33,7 @@ export default function Contacto({cart, cartOpen, setCartOpen, clearCart, delete
                 <button className="py-2 bg-fuchsia-600 rounded-lg text-white text-lg w-1/2 mx-auto cursor-pointer hover:bg-fuchsia-500 transition-all ">Enviar</button>
             </form>
         </div>
-        <Cart 
-            deleteItem={deleteItem}
-            cart={cart}
-            clearCart={clearCart}
-            cartOpen={cartOpen}
-            setCartOpen={setCartOpen}
-        />
+        <Cart />
         
         <Footer />
     </>

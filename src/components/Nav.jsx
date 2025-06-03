@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
-export default function Nav({cart, setCartOpen}) {
+export default function Nav() {
+
+  const { cart, setCartOpen} = useContext(CartContext)
+
   return (
     <nav>
         <ul className="flex gap-6 justify-between text-fuchsia-800 text-lg">

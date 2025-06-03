@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import Product from "./Product";
+import { CartContext } from "../context/CartContext";
 
-export default function ProductList({products, addToCart, handleDecreaseQuantity, cart}) {
+export default function ProductList() {
+  const { products, cart } = useContext(CartContext)
   return (
     <>
         <div className="grid grid-cols-3 gap-5 mt-10">
@@ -11,9 +14,6 @@ export default function ProductList({products, addToCart, handleDecreaseQuantity
                     <Product
                       key={product.id}
                       product={{...product, cantidad}}  
-                      addToCart={addToCart} 
-                      handleDecreaseQuantity={handleDecreaseQuantity} 
-                      cart={cart}
                     />
                 )
             })}   
