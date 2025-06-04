@@ -9,11 +9,10 @@ export default function Login() {
   const [ email, setEmail] = useState('')
   const [ password, setPassword] = useState('')
   const [ error, setError ] = useState({})
-  const [invalidCred, setInvalidCred] = useState('')
   const navigate = useNavigate()
-
+  
   const  handleSubmit = async (e) => {
-      e.preventDefault()
+    e.preventDefault()
 
       let errorMessage = {}
       if(!email) { errorMessage.email = 'El Email es obligatorio'}
@@ -46,7 +45,7 @@ export default function Login() {
           }
         }
   
-      } catch (error) {
+      } catch {
         setError({email: 'Ha ocurrido un error, intentalo de nuevo'})
       }
   }

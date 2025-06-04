@@ -12,10 +12,11 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const response = await fetch('../db/db.json')
+          const response = await fetch(`https://684089405b39a8039a586600.mockapi.io/api/products`)
+          // console.log(response)
           const data = await response.json()
-          // console.log(data.db)
-          setProducts(data.db)
+          // console.log(data)
+          setProducts(data)
           setIsLoading(false)
       } catch (error) {
         console.log(error)

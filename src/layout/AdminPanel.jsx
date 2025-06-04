@@ -8,6 +8,26 @@ export default function AdminPanel() {
   
   const { products } = useContext(CartContext)
 
+  const addProduct = async (products) => {
+    try {
+      const response = await fetch(`https://684089405b39a8039a586600.mockapi.io/api/products`,{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(products)
+
+      })
+      if(!response.ok){
+        throw new Error ('Hubo un problema al agregar el producto')
+      }
+      const data = await response.json()
+      alert('Producto agregado correctamente')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="h-[150px] bg-fuchsia-700 flex items-center justify-around">
@@ -23,7 +43,7 @@ export default function AdminPanel() {
           </div>
         </nav>
       </div>
-      <FormProductsAdmin />
+      <FormProductsAdmin submitProduct={addProduct} />
       
       <ul className='space-y-2 my-10 w-[90%] mx-auto'>
         {products.map(item =>(
