@@ -6,7 +6,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   //#fetch
   useEffect(() => {

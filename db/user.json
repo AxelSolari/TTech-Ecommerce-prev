@@ -1,0 +1,13 @@
+[
+    {
+        "email": "admin@correo.com",
+        "password": "password",
+        "role": "admin"
+    },
+    {
+        "email": "client@correo.com",
+        "password": "1234",
+        "role": "client"
+    }
+
+]
