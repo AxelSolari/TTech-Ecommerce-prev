@@ -25,7 +25,7 @@ export default function Product({product}) {
               >
               Ver mas</Link>
             </div>
-          <p className='text-sm leading-5 mt-2 text-center'>{product.description}</p>
+          <p className='text-sm leading-5 mt-2 text-center break-words whitespace-normal'>{product.description}</p>
             <p className='font-bold mt-5 text-center text-lg'>${product.price}</p>
             <div className='flex flex-col justify-center'>
               <div className='flex items-center justify-center gap-2 mt-2'>

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./layout/Home"
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import ProductsViews from "./layout/ProductsViews"
 import ProductDetails from "./components/ProductDetails"
 import NotFound from "./components/NotFound"
@@ -9,15 +9,14 @@ import ProtectedRoute from './utils/ProtectedRoute'
 import AdminPanel from "./layout/AdminPanel"
 import Nosotros from "./layout/Nosotros"
 import Contacto from "./layout/Contacto"
-import { CartContext } from "./context/CartContext"
+import { AuthContext } from "./context/AuthContext"
 
 function App() {
   
-  const { isAuthenticated } = useContext(CartContext)
+  const { isAuthenticated } = useContext(AuthContext)
 
   return (
     <>
-      <Router>
         <Routes>
           <Route path="/" 
             element={<Home />} 
@@ -38,7 +37,6 @@ function App() {
           <Route path="/login"   element={<Login />}/>
           <Route path="/admin" element={<ProtectedRoute isAuthenticated={isAuthenticated} ><AdminPanel /></ProtectedRoute> } />
         </Routes>
-      </Router>
     </>
   )
 }

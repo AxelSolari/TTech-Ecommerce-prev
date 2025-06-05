@@ -8,7 +8,7 @@ export default function ProductDetails() {
     const { products } = useContext(CartContext)
 
     const { id } = useParams()
-    const productos = products.find( item => item.id === +id) 
+    const productos = products.find( item => item.id === id) 
     const navigate = useNavigate();
   return (
     <>
@@ -18,7 +18,7 @@ export default function ProductDetails() {
 
                     <h3 className="text-2xl font-bold my-5">{productos.name}</h3>
                         
-                    <img className="w-[400px] h-[300px] object-cover mx-auto rounded-lg" src={`/${productos.image}.jpg`} alt="Imagen del producto" /> 
+                    <img className="w-[400px] h-[300px] object-cover mx-auto rounded-lg" src={`${productos.image}.jpg`} alt="Imagen del producto" /> 
                     <p className="my-5 font-semibold">{productos.description}</p>
                     <h4 className="text-lg font-bold">Caracteristicas</h4>
                     <div>

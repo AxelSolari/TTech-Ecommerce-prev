@@ -1,39 +1,32 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function FormProductsAdmin({submitProduct}) {
+export default function EditProductForm({selectedProduct, updateProduct}) {
 
-    const [producto, setProducto] = useState({
-        name: '',
-        image: '',
-        description: '',
-        price: ''
-    })
+    const [producto, setProducto] = useState(selectedProduct)
 
+    useEffect(() => {
+        setProducto(selectedProduct)
+
+    }, [selectedProduct])
+    
     const handleChange = (e) => {
         const {name, value} = e.target
         setProducto({...producto, [name]: value})
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        submitProduct(producto)
-        setProducto({
-            name: '',
-            image: '',
-            description: '',
-            price: ''
-        })
-    }
+    
 
   return (
       <div>
-          
+          <h3 className="text-center text-2xl mt-5">Editar Producto</h3>
 
           <div>
               <form 
                 className="w-1/3 bg-gray-300 mx-auto mt-5 p-5 rounded space-y-5 shadow-lg"
-                onSubmit={handleSubmit}
+                onSubmit={(e) =>{
+                    e.preventDefault()
+                    updateProduct(producto)
+                }}
                 >
                   <input
                       type="text"
@@ -81,7 +74,7 @@ export default function FormProductsAdmin({submitProduct}) {
                       className="block mx-auto py-1 px-3 font-semibold shadow-md bg-white rounded-lg hover:ring-1 hover:ring-fuchsia-500 cursor-pointer transition-all"
                       
                   >
-                      Agregar nuevo producto
+                       Guardar Cambios
                   </button>
               </form>
           </div>
