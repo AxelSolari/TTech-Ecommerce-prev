@@ -8,6 +8,8 @@ import { CartContext } from "../context/CartContext";
 import ButtonDelete from "../components/ButtonDelete";
 import ButtonEdit from "../components/ButtonEdit";
 import EditProductForm from "../components/EditProductForm";
+import { toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const url = 'https://684089405b39a8039a586600.mockapi.io/api/products'
 
 export default function AdminPanel() {
@@ -30,8 +32,9 @@ export default function AdminPanel() {
                 throw new Error("Hubo un problema al agregar el producto");
             }
             const data = await response.json();
-            console.log(data);
-            alert("Producto agregado correctamente");
+            // console.log(data);
+            
+            toast.success('Producto agregado Correctamente')
             setNewProduct(false)
             reloadList()
         } catch (error) {
@@ -54,7 +57,7 @@ export default function AdminPanel() {
           }
           const data = await response.json()
 
-          alert('Producto actualizado correctamente')
+          toast.success('Producto actualizado correctamente')
           setEdit(false)
           setSelectedProduct(null)
           reloadList()
@@ -79,7 +82,7 @@ export default function AdminPanel() {
                 if (!response)
                     throw new Error("Hubo un error al eliminar el producto");
 
-                alert("El producto se elimino correctamente");
+                toast.success('Producto eliminado correctamente')
                 reloadList()
             } catch (error) {
                 console.log(error);
@@ -145,6 +148,10 @@ export default function AdminPanel() {
                     </li>
                 ))}
             </ul>
+            <ToastContainer 
+              autoClose={3000}
+              pauseOnHover={false}
+            />
         </>
     );
 }

@@ -18,7 +18,7 @@ export default function Home() {
 
         {isLoading ? <div className="flex flex-col items-center justify-center"><BeatLoader  color="#9800a0" speedMultiplier={0.5} size={40} /><p className="text-2xl text-fuchsia-600 mt-5">Cargando Productos...</p></div> : 
         
-          <ProductList />
+          <ProductList/>
         
         }
         <Cart />
