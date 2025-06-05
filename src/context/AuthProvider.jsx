@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
-    const [isAuthenticated, setIsAuthenticated] = useState(Boolean)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const navigate = useNavigate();
 
     useEffect(()=> {
@@ -17,6 +17,14 @@ export const AuthProvider = ({ children }) => {
             navigate('/admin')
         }
     }, [])
+
+    const logOut = () => {
+        localStorage.removeItem('isAuth')
+        setIsAuthenticated(false)
+        setEmail('')
+        setPassword('')
+        navigate('/login')
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,6 +61,7 @@ export const AuthProvider = ({ children }) => {
                     localStorage.setItem('isAuth', true)
                     navigate("/admin");
                 } else {
+                    localStorage.setItem('isAuth', true)
                     navigate("/");
                 }
             }
@@ -76,7 +85,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider  value={{email, setEmail, password, setPassword, error, setError, handleSubmit, handleEmailChange, handlePasswordChange, isAuthenticated, setIsAuthenticated}}>
+        <AuthContext.Provider  value={{email, setEmail, password, setPassword, error, setError, handleSubmit, handleEmailChange, handlePasswordChange, isAuthenticated, setIsAuthenticated, logOut}}>
             {children}
         </AuthContext.Provider>
     )

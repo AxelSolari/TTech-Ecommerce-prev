@@ -7,8 +7,10 @@ export default function Login() {
 
   return (
     <>
-      <div className=" h-screen flex flex-col items-center justify-center bg-white">
+      <div className=" h-screen flex flex-col items-center justify-center bg-slate-100">
         <h1 className="text-3xl text-center">Inicia sesion</h1>
+
+        <p className=" mt-5">Puedes iniciar sesion como <span className="text-fuchsia-600 font-semibold">Cliente</span> o <span className="text-fuchsia-600 font-semibold">Administrador</span></p>
 
         <form 
           className="bg-fuchsia-400 shadow-lg flex flex-col space-y-5 p-7 mt-10 w-1/4 rounded-lg"
@@ -21,7 +23,7 @@ export default function Login() {
             </div>
           )}
 
-          <label className="text-white underline">
+          <label className="text-white text-lg underline">
             Email de registro
           </label>
           <input 
@@ -36,7 +38,7 @@ export default function Login() {
               {error.email}
             </div>
           )}
-          <label className="text-white underline">
+          <label className="text-white text-lg underline">
             Password de registro
           </label>
           <input 

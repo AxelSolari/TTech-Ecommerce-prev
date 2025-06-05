@@ -28,7 +28,7 @@ export default function FormProductsAdmin({submitProduct}) {
 
   return (
       <div>
-          
+          <h1 className="text-center text-2xl mt-5">Agrega un nuevo producto a la tienda</h1>
 
           <div>
               <form 
