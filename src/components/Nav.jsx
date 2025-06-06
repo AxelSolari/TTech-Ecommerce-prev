@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
-
+import { ArrowLeftStartOnRectangleIcon } from "@heroicons/react/24/solid";
 export default function Nav() {
 
   const { cart, setCartOpen} = useContext(CartContext)
@@ -51,8 +51,9 @@ export default function Nav() {
                     </div>
                   )}
                   
-            <li className=" cursor-pointer hover:text-fuchsia-400 relative group">
-              <Link to='/login' onClick={logOut}>Cerrar sesion</Link>
+            <li className=" cursor-pointer hover:text-fuchsia-400 relative group ">
+              <Link to='/login' onClick={logOut} className="flex items-center gap-1">Cerrar sesion <ArrowLeftStartOnRectangleIcon className="h-6 w-6" /></Link>
+              
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-fuchsia-600 group-hover:w-full group-hover:transition-all"></span>
             </li>
         </ul>

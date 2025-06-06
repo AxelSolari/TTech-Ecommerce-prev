@@ -7,7 +7,7 @@ export default function ProductsViews() {
   return (
     <>  
         <Header />
-        <h2 className="text-center text-3xl mt-5">Lista de productos disponibles</h2>
+        <h2 className="text-center text-3xl my-5">Lista de productos disponibles</h2>
         <ProductList />
         <Cart />
 
