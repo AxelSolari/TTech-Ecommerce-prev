@@ -7,13 +7,13 @@ export default function Login() {
 
   return (
     <>
-      <div className=" h-screen flex flex-col items-center justify-center bg-slate-100">
+      <div className=" h-screen flex flex-col items-center justify-center bg-gradient-to-r from-white via-fuchsia-300 to-fuchsia-400">
         <h1 className="text-3xl text-center">Inicia sesion</h1>
 
         <p className=" mt-5">Puedes iniciar sesion como <span className="text-fuchsia-600 font-semibold">Cliente</span> o <span className="text-fuchsia-600 font-semibold">Administrador</span></p>
 
         <form 
-          className="bg-fuchsia-400 shadow-lg flex flex-col space-y-5 p-7 mt-10 w-1/4 rounded-lg"
+          className="bg-fuchsia-600 shadow-lg flex flex-col space-y-5 p-7 mt-10 w-1/4 rounded-lg"
           onSubmit={handleSubmit}
 
         > 
@@ -56,7 +56,7 @@ export default function Login() {
           
           <button
             type="submit"
-            className="bg-white py-1 w-1/3 mx-auto rounded font-semibold text-slate-600 cursor-pointer hover:ring-2 hover:ring-fuchsia-700"
+            className="bg-white py-1 w-1/3 mx-auto rounded font-semibold text-slate-600 cursor-pointer hover:ring-2 hover:ring-white transition-all"
           >Iniciar Sesion</button>
         </form>
       </div>

@@ -12,8 +12,11 @@ export default function ProductDetails() {
     const navigate = useNavigate();
   return (
     <>
-        {productos ? (
-                <div className="block mx-auto w-1/3 mt-10 p-10 rounded-lg shadow-xl bg-white">
+            <div className="bg-gradient-to-r from-white via-fuchsia-300 to-fuchsia-400 h-dvh">
+                {productos ? (
+
+          
+                <div className="left-[600px] top-[100px] absolute w-1/3 bg-white p-10 rounded-lg shadow-xl">
                     <h1 className="text-center text-3xl">Detalles del producto:</h1>
 
                     <h3 className="text-2xl font-bold my-5">{productos.name}</h3>
@@ -43,6 +46,7 @@ export default function ProductDetails() {
                 </div>
                 )
                 : <NotFound />}
+            </div>
     </>
   )
 }

@@ -5,15 +5,25 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthProvider.jsx'
 import { CartProvider } from './context/CartProvider.jsx'
+import { AdminProvider } from './context/AdminProvider.jsx'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <AuthProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <CartProvider>
+    <AdminProvider>
+          <App />
+          <ToastContainer 
+            autoClose={3000}
+            pauseOnHover={false}
+          />
+    </AdminProvider>
+        </CartProvider>
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 )

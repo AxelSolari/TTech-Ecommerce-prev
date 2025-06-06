@@ -8,18 +8,29 @@ export const AuthProvider = ({ children }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [role, setRole] = useState('')
     const navigate = useNavigate();
 
     useEffect(()=> {
         const isAuthenticated = localStorage.getItem('isAuth') === 'true'
-        if(isAuthenticated){ 
+        const userRole = localStorage.getItem('role') || ''
+
+        if(isAuthenticated){
             setIsAuthenticated(true)
-            navigate('/admin')
-        }
-    }, [])
+            setRole(userRole)
+            if(userRole === 'admin'){
+                navigate('/admin')
+            } else if (userRole === 'client'){
+                navigate('/')
+                } 
+            } else {
+                navigate('/login')
+            }
+        }, [])
 
     const logOut = () => {
         localStorage.removeItem('isAuth')
+        localStorage.removeItem('role')
         setIsAuthenticated(false)
         setEmail('')
         setPassword('')
@@ -56,12 +67,17 @@ export const AuthProvider = ({ children }) => {
                     setError({ invalidCred: "" });
                 }, 3000);
             } else {
+                
                 if (userExists.role === "admin") {
                     setIsAuthenticated(true);
                     localStorage.setItem('isAuth', true)
+                    localStorage.setItem('role', userExists.role)
                     navigate("/admin");
                 } else {
+                    userExists.role === 'client'
+                    setIsAuthenticated(true)
                     localStorage.setItem('isAuth', true)
+                    localStorage.setItem('role', userExists.role)
                     navigate("/");
                 }
             }

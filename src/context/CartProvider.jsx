@@ -1,12 +1,13 @@
 import {  useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
+import { toast } from "react-toastify";
 const url = 'https://684089405b39a8039a586600.mockapi.io/api/products'
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
   const [cartOpen, setCartOpen] = useState(false)
-  
   const [isLoading, setIsLoading] = useState(false)
+  const [search, setSearch] = useState('')
   //#fetch
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +36,9 @@ export const CartProvider = ({ children }) => {
       }
     }
 
+
+  const productsFilter = products.filter((item) => item?.name.toLowerCase().includes(search.toLowerCase()) )
+
   //#addToCart
   const handleAdToCart =(product) => {
     const productExist = cart.find( item => item.id === product.id )
@@ -47,6 +51,7 @@ export const CartProvider = ({ children }) => {
         )
       )
     } else {
+      toast.success('Producto agregado')
       setCart([...cart, {...product, cantidad: 1}])
     }
   }
@@ -77,7 +82,7 @@ export const CartProvider = ({ children }) => {
   }
 
     return (
-        <CartContext.Provider value={{cart, products, cartOpen, isLoading, handleAdToCart, handleDecreaseQuantity, deleteItem, clearCart, setCartOpen, reloadList}}>
+        <CartContext.Provider value={{cart, products, cartOpen, isLoading, handleAdToCart, handleDecreaseQuantity, deleteItem, clearCart, setCartOpen, reloadList, search, setSearch, productsFilter}}>
             {children}
         </CartContext.Provider>
     )

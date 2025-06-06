@@ -18,8 +18,9 @@ function App() {
   return (
     <>
         <Routes>
+          
           <Route path="/" 
-            element={<Home />} 
+            element={<ProtectedRoute isAuthenticated={isAuthenticated}><Home /></ProtectedRoute> } 
           />
           <Route path="/productos" 
             element={<ProductsViews />} 

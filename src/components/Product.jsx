@@ -8,11 +8,11 @@ export default function Product({product}) {
   // console.log(products)
   return (
     <section className=''>
-      <div className=' w-[90%] shadow-lg rounded mx-auto'>
+      <div className=' w-[90%] shadow-lg rounded mx-auto p-5'>
         <div className='w-full h-60 overflow-hidden mx-auto p-2'>
         <img 
           src={`${product.image}.jpg`} 
-          className='w-full h-full object-cover'
+          className='w-full h-full object-cover rounded-lg'
         />
 
         </div>

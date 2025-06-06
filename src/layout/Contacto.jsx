@@ -10,7 +10,7 @@ export default function Contacto() {
         <h3 className="text-4xl text-center my-7">Contactanos</h3>
         <div className="my-20">
             <form
-                className="bg-white flex flex-col w-1/3 mx-auto p-10 space-y-5 shadow-xl mb-10"
+                className="bg-white flex flex-col w-1/3 mx-auto p-10 space-y-5 shadow-xl mb-10 rounded-lg"
                 noValidate
             >
                 <label className="text-lg ">
